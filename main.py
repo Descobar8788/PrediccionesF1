@@ -4,6 +4,7 @@ from helpers import apology, login_required, get_date
 from cs50 import SQL
 from datetime import datetime
 
+
 app = Flask(__name__)
 
 db = SQL("sqlite:///f1.db")
@@ -224,9 +225,9 @@ def login():
 
 @app.route("/logout")
 def logout():
-    session.clear()
-    
-    return redirect("/")
+	session.clear()
+	
+	return redirect("/")
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
