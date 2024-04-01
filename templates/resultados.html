@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Introducir resultados | Predicciones F1
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/css/predecir.css">
+{% endblock %}
+
+{% block body %}
+        <div class="session-info">
+            <h2>Introducir resultados<h2>
+        </div>
+        <form action="/resultados" method="post">
+            <div class="choices">
+                <div class="session-choices">
+                    <div class="circuit-choice">
+                        <h3>Circuito</h3>
+                        <select name="race" class="custom-select">
+                            <option disabled selected value>Seleccionar circuito</option>
+                            {% for circuit in circuits %}
+                                <option value="{{ circuit.circuit }}">{{ circuit["circuit"] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="session-choice">
+                        <h3>Sesión</h3>
+                        <select name="session" class="custom-select">
+                            <option disabled selected value>Seleccionar sesión</option>
+                            <option value="qualy">Clasificación</option>
+                            <option value="race">Carrera</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="top-choices">
+                    {% for i in range(5) %}
+                    <div class="top-choice">
+                        <h3>Top {{ i + 1}}</h3>
+                        <select name="top{{ i + 1}}" id="" class="custom-select">
+                            <option disabled selected value>Seleccionar piloto</option>
+                        {% for i in pilots %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="team-choice">
+                    <h3>Segunda escudería</h3>
+                    <select name="team" id="" class="custom-select">
+                    <option disabled selected value>Seleccionar segunda escudería</option>
+                        {% for i in teams %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                    </select>
+                </div>  
+                <div class="submit-button">
+                    <button type="submit">Confirmar resutlados</button>
+                </div>
+            </div>
+        </form>
+        <form action="/ver_resultados">
+            <div class="submit-button resultados-button">
+                <button type="submit">Ver resultados</button>
+            </div>
+        </form>
+{% endblock %}

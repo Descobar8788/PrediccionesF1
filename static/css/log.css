@@ -1,0 +1,35 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10em 0 3.75em 0;
+}
+
+.register-info {
+    display: flex;
+    flex-direction: column;
+    margin: 4.375em 0;
+    text-align: center;
+    gap: 1.875em;
+}
+
+.register-info h3 {
+    font-size: 1.125em;
+}
+
+.register-info input {
+    border-radius: 3.1875em;
+    border: none;
+    text-align: center;
+}
+
+.register-password input{
+    width: 18.75em;
+}
+
+@media (max-width: 350px) {
+    body {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Ver resultados | Predicciones F1
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/css/ver_resultados.css">
+{% endblock %}
+
+{% block body %}
+        <div class="session-info">
+            <h2>Ver resultados<h2>
+        </div>
+        
+        <div class="selection">
+            <select class="custom-select" id="name">
+                <option disabled selected value>Seleccionar circuito</option>
+                {% for circuito in circuitos %}
+                    <option value="{{ circuito.circuit }}">{{ circuito["circuit"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="results">
+            {% for resultado in resultados %}
+                <div class="result-card data" id="{{ resultado.race }}">
+                    <div class="session-title">
+                        {% if resultado["type"] == "qualy" %}
+                        <h3>Clasificación</h3>
+                        {% endif %}
+                        {% if resultado["type"] == "race" %}
+                        <h3>Carrera</h3>
+                        {% endif %}
+                    </div>
+                    <div class="tops">
+                        <div class="top">
+                            <h4 class="top-h">Top 1:</h4>
+                            <h4 >{{ resultado["top1"] }}</h4>
+                        </div>
+                        <div class="top">
+                            <h4 class="top-h">Top 2:</h4>
+                            <h4 >{{ resultado["top2"] }}</h4>
+                        </div>
+                        <div class="top">
+                            <h4 class="top-h">Top 3:</h4>
+                            <h4 >{{ resultado["top3"] }}</h4>
+                        </div>
+                        <div class="top">
+                            <h4 class="top-h">Top 4:</h4>
+                            <h4 >{{ resultado["top4"] }}</h4>
+                        </div>
+                        <div class="top">
+                            <h4 class="top-h">Top 5:</h4>
+                            <h4 >{{ resultado["top5"] }}</h4>
+                        </div>
+                        <div class="top escuderia">
+                            {% if resultado["type"] == "race" %}
+                                <h4 class="top-h">Segunda escudería:</h4>
+                                <h4 >{{ resultado["escuderia"] }}</h4>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+
+            var results = document.getElementsByClassName("result-card")
+            var select = document.getElementById("name")
+
+            select.addEventListener("change", (event) => {
+                Array.from(results).forEach((x) => {
+                    if (x.id === select.value) {
+                        x.style.display = "flex";
+                    }
+                    else {
+                        x.style.display = "none";
+                    }
+                });
+            });
+
+            
+
+        </script>
+{% endblock %}

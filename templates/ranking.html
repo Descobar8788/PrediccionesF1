@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Ranking | Predicciones F1
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/css/ranking.css">
+{% endblock %}
+
+{% block body %}
+    <div class="page-title">
+        <h2>Ranking</h2>
+    </div>
+
+    <div class="ranking-cards">
+        {% for user in users %}
+            <div class="user-card">
+                <div class="user-name">
+                    <h2>{{ user["user"] }}</h2>
+                </div>
+                <div class="user-points">
+                    <h3>{{ user["points"] }}</h3>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="space"></div>                                                             
+{% endblock %}

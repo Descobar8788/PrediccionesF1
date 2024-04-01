@@ -1,0 +1,83 @@
+.page-title {
+    margin-bottom: 70px;
+}
+
+.ranking-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.user-card {
+    width: 1000px;
+    height: 130px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.user-points h3 {
+    margin-bottom: -0.5rem !important;
+}
+
+h2 {
+    margin-bottom: -8px !important;
+}
+
+@media (max-width: 1200px) {
+    .user-card {
+        width: 43.75em;
+    }
+}
+
+@media (max-width: 850px) {
+    body {
+        font-size: 12px;
+    }
+
+    .user-card {
+        width: 36.375em;
+        height: 8.25em;
+        padding: 1.25em 3.75em;
+    }
+
+    .user-card h2, h3 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 578px) {
+    body {
+        font-size: 10px;
+    }
+    
+    .user-card {
+        width: 30.75em;
+    }
+}
+
+@media (max-width: 390px) {
+    body {
+        font-size: 8px;
+    }
+
+    .user-card {
+        width: 26em;
+        height: 10em;
+    }
+
+    .user-card h2, h3 {
+        font-size: 20px;
+    }
+
+    .page-title h2{
+        font-weight: bold;
+    }
+}

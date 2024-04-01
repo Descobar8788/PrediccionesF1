@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Predecir | Predicciones F1
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/css/predecir.css">
+{% endblock %}
+
+{% block body %}
+    {% if sessionType == "qualy" %} 
+        <div class="session-info">
+            <h2>{{ circuit }}</h2>
+            <h3>Clasificación</h3>
+        </div>
+        <form action="/predecir" method="post">
+            <div class="choices">
+                <div class="top-choices">
+                    {% for i in range(5) %}
+                    <div class="top-choice">
+                        <h3>Top {{ i + 1}}</h3>
+                        <select name="top{{ i + 1}}" id="" class="custom-select">
+                            <option disabled selected value>Seleccionar piloto</option>
+                        {% for i in pilots %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                    {% endfor %}
+                </div>
+                <input type="hidden" value="{{ circuit }}" name="circuit">
+                <input type="hidden" value="{{ sessionType }}" name="sessionType">
+                <input type="hidden" value="{{ qualy_date }}" name="qualy_date">
+                <input type="hidden" value="{{ qualy_time }}" name="qualy_time">
+                <div class="submit-button">
+                    <button type="submit">Confirmar predicción</button>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+    {% if sessionType == "race" %} 
+        <div class="session-info">
+            <h2>{{ circuit }}</h2>
+            <h3>Carrera</h3>
+        </div>
+        <form action="/predecir" method="post">
+            <div class="choices">
+                <div class="top-choices">
+                    {% for i in range(5) %}
+                    <div class="top-choice">
+                        <h3>Top {{ i + 1}}</h3>
+                        <select name="top{{ i + 1}}" id="" class="custom-select">
+                        <option disabled selected value>Seleccionar piloto</option>
+                        {% for i in pilots %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="team-choice">
+                    <h3>Segunda escudería</h3>
+                    <select name="team" id="" class="custom-select">
+                    <option disabled selected value>Seleccionar segunda escudería</option>
+                        {% for i in teams %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                    </select>
+                </div>  
+                <input type="hidden" value="{{ circuit }}" name="circuit">
+                <input type="hidden" value="{{ sessionType }}" name="sessionType">
+                <input type="hidden" value="{{ race_date }}" name="race_date">
+                <input type="hidden" value="{{ race_time }}" name="race_time">
+                <div class="submit-button">
+                    <button type="submit">Confirmar predicción</button>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+    <div class="predicciones">
+        <div class="p-title">
+            {% if predicciones %}
+                <h2>Tus predicciones actuales</h2>
+            {% endif %}
+        </div>
+        <div class="p-data">
+            {% for prediccion in predicciones %}
+                <div class="p-card">
+                    <div class="top">
+                        <h4 class="top-h">Top 1:</h4>
+                        <h4 >{{ prediccion["top1"] }}</h4>
+                    </div>
+                    <div class="top">
+                        <h4 class="top-h">Top 2:</h4>
+                        <h4 >{{ prediccion["top2"] }}</h4>
+                    </div>
+                    <div class="top">
+                        <h4 class="top-h">Top 3:</h4>
+                        <h4 >{{ prediccion["top3"] }}</h4>
+                    </div>
+                    <div class="top">
+                        <h4 class="top-h">Top 4:</h4>
+                        <h4 >{{ prediccion["top4"] }}</h4>
+                    </div>
+                    <div class="top">
+                        <h4 class="top-h">Top 5:</h4>
+                        <h4 >{{ prediccion["top5"] }}</h4>
+                    </div>
+                    <div class="top escuderia">
+                        {% if prediccion["type"] == "race" %}
+                            <h4 class="top-h">Segunda escudería:</h4>
+                            <h4 >{{ prediccion["escuderia"] }}</h4>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

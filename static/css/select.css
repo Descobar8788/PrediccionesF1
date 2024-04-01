@@ -1,0 +1,121 @@
+.page-title {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+}
+
+.img-title img {
+    width: 5em;
+    height: 5em;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5em 0;
+}
+
+.session-card {
+    cursor: pointer;
+    width: 62.5em;
+    height: 6.25em;
+    border: 1px solid grey;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 0.625em 5em;
+}
+
+.session-card h3 {
+    font-weight: bolder;
+    margin-bottom: 0;
+}
+
+.session-datetime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.75em;
+    text-align: left;
+}
+
+.session-datetime h4{
+    margin-bottom: 0;
+}
+
+@media (max-width: 1200px) {
+    .session-card {
+        width: 46.75em;
+    }
+}
+
+@media (max-width: 850px) {
+    body {
+        font-size: 12px;
+    }
+
+    .session-card {
+        width: 40.375em;
+        height: 8.25em;
+        padding: 1.25em 3.75em;
+    }
+
+    .session-card h3 {
+        font-size: 22px;
+    }
+
+    .session-datetime h4 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 578px) {
+    body {
+        font-size: 10px;
+    }
+    
+    .session-card {
+        width: 35.75em;
+    }
+
+    .session-card h3 {
+        font-size: 15px;
+    }
+
+    .session-datetime h4 {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 390px) {
+    body {
+        font-size: 8px;
+    }
+
+    .session-card {
+        width: 26em;
+        height: 25em;
+        flex-direction: column;
+        padding: 50px 20px;
+        gap: 30px;
+    }
+
+    .session-datetime {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .session-card h2, h3 {
+        font-size: 20px;
+    }
+
+    .page-title h2{
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Seleccionar Sesión | Predicciones F1
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/css/select.css">
+{% endblock %}
+
+{% block body %}
+    <div class="page-title">
+        <div class="img-title">
+            <img src="{{ img }}" alt="">
+        </div>
+        <h2>{{ circuit }}</h2>
+    </div>
+    
+    <form action="/select" method="post">
+        <div class="session-card" onclick="this.parentNode.submit()">
+            <h3>Clasificación</h3>
+            <div class="session-datetime">
+                <div class="session-date">
+                    <h4>{{ qualy_date }}</h4>
+                </div>
+                <div class="session-time">
+                    <h4>{{ qualy_time }}</h4>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="{{ circuit }}" name="circuit">
+        <input type="hidden" value="qualy" name="session">
+        <input type="hidden" value="{{ race_date }}" name="race_date">
+        <input type="hidden" value="{{ race_time }}" name="race_time">
+        <input type="hidden" value="{{ qualy_date }}" name="qualy_date">
+        <input type="hidden" value="{{ qualy_time }}" name="qualy_time">
+    </form>
+    <form action="/select" method="post">
+        <div class="session-card" onclick="this.parentNode.submit()">
+            <h3>Carrera</h3>
+            <div class="session-datetime">
+                <div class="session-date">
+                    <h4>{{ race_date }}</h4>
+                </div>
+                <div class="session-time">
+                    <h4>{{ race_time }}</h4>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="{{ circuit }}" name="circuit">
+        <input type="hidden" value="race" name="session">
+        <input type="hidden" value="{{ race_date }}" name="race_date">
+        <input type="hidden" value="{{ race_time }}" name="race_time">
+        <input type="hidden" value="{{ qualy_date }}" name="qualy_date">
+        <input type="hidden" value="{{ qualy_time }}" name="qualy_time">
+    </form>
+{% endblock %}

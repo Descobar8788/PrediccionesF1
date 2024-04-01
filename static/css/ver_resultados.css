@@ -1,0 +1,75 @@
+.session-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 150px 70px;
+    text-align: center;
+}
+
+.session-info h2 {
+    font-size: 50px;
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.session-title h3{
+    font-weight: bold;
+}
+
+.result-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.tops {
+    margin: 40px 0 90px 0;
+}
+
+.top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.escuderia {
+    margin-top: 20px;
+}
+
+.top-h {
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+
+    .session-info h2 {
+        font-size: 40px;
+    }
+
+    select {
+        width: 20em !important;
+    }
+}
+
+@media (max-width: 400px) {
+    select {
+        width: 15em !important;
+    }
+
+    .session-title h3{
+        font-size: 23px;
+    }
+
+    .tops h4{
+        font-size: 17px;
+    }
+}

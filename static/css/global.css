@@ -1,0 +1,119 @@
+* {
+    font-family: "Nunito", sans-serif;
+    font-weight: bolder;
+}
+
+body {
+    font-size: 16px;
+}
+
+nav {
+    background-color: #E2E0DE;
+}
+
+.nav {
+    justify-content: right;
+    gap: 18.75em;
+    
+}
+
+.nav-item {
+    margin: 0 3.125em;
+}
+
+.page-title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 9.375em;
+}
+
+.page-title h2 {
+    font-size: 3.125em;
+}
+
+button{
+    width: 10.0625em;
+    height: 3.1875em;
+    border-radius: 6.25em !important;
+    background: #769cc0;
+    border: none;
+    font-weight: bold;
+}
+
+.display-nav-toggle {
+    width: 3.75em;
+    height: 3.125em;
+}
+
+button:focus {
+    outline: 0;
+}
+
+input {
+    background-color: #E2E0DE;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1.25em;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    font-size: 1.15rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+}
+
+.custom-select {
+    width: 31.25em; 
+    height: 3.125em;
+}
+
+.custom-select::before,
+.custom-select::after {
+  --size: 0.3rem;
+  position: absolute;
+  content: "";
+  right: 1rem;
+  pointer-events: none;
+}
+
+.custom-select::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid black;
+  top: 40%;
+}
+
+.custom-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid black;
+  top: 55%;
+}
+
+.space {
+    margin-bottom: 12.5em;
+}
+
+@media (max-width: 992px) {
+    .nav{
+        justify-content: center;
+        text-align: center;
+    }
+
+    .nav ul {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 570px) {
+    .nav ul {
+        font-size: 20px;
+    }
+}

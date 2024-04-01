@@ -1,0 +1,136 @@
+.session-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1.875em;
+    margin: 6.25em 0 9.375em 0;
+}
+
+.session-info h2 {
+    font-weight: bolder;
+}
+
+.session-info h3 {
+    font-size: 1.25em;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 12.5em;
+}
+
+.session-choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 3.125em;
+    margin-bottom: 6.25em;
+}
+
+.top-choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 3.125em;
+    margin-bottom: 6.25em;
+}
+
+.top-choice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25em;
+}
+
+.team-choice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25em;
+    margin-bottom: 6.25em;
+}
+
+.submit-button button{
+    width: 12.5em;
+}
+
+.resultados-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12.5em;
+}
+
+.predicciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3.125em;
+    margin-bottom: 12.5em;
+}
+
+.top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625em;
+}
+
+.top-h {
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 12px;
+    }
+
+    select {
+        width: 23.75em !important;
+    }
+
+    .session-info h3 {
+        font-size:20px;
+    }
+}
+
+@media (max-width: 480px) {
+    select {
+        width: 18.75em !important;
+    }
+
+    .p-title h2{
+        font-size: 28px;
+    }
+
+    .top h4 {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 380px) {
+    select {
+        width: 15em !important;
+    }
+
+    .p-title h2{
+        font-size: 25px;
+    }
+
+    .top h4 {
+        font-size: 20px;
+    }
+}
