@@ -7,11 +7,11 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-db = SQL("sqlite:///f1.db")
-
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
+
+db = SQL("sqlite:///f1.db")
 
 PILOTS = ["Verstappen", "Pérez", "Sainz", "Leclerc", "Alonso", "Stroll", "Hamilton", "Russell", "Norris", "Piastri", "Ricciardo", "Tsunoda", "Bottas", "Zhou", "Hulkenberg", "Magnussen", "Ocon", "Gasly", "Albon", "Sargeant"]
 TEAMS = ["Red Bull", "Ferrari", "Aston Martin", "Mercedes", "McLaren", "Visa CashApp", "Kick Sauber", "Hass", "Alpine", "Williams"]
