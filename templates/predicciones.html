@@ -14,12 +14,11 @@ Predicciones | Predicciones F1
     </div>
 
     {% for race in races %}
-
         
         <form action="/" method="post">
             <div class="circuit_card" onclick="this.parentNode.submit()">
                 <div class="id">
-                    <h2>{{ race["id"] }}</h2>
+                    <h2>{{ race["race_id"]}}</h2>
                 </div>
                 <div class="circuit">
                     <h3>{{ race["circuit"] }}</h3>
@@ -35,7 +34,6 @@ Predicciones | Predicciones F1
             <input type="hidden" value="{{ race.qualy_date }}" name="qualy_date">
             <input type="hidden" value="{{ race.qualy_time }}" name="qualy_time">
         </form>
-
     {% endfor %}
     
     <div class="space"></div>
