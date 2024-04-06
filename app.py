@@ -1,17 +1,16 @@
 from flask import Flask, render_template, request, redirect, session
 from flask_session import Session
 from helpers import apology, login_required, get_date
-from cs50 import SQL
+from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 
 app = Flask(__name__)
 
 app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = "filesystem"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://usuario:contraseña@localhost/nombre_de_la_base_de_datos'
+db = SQLAlchemy(app)
 Session(app)
-
-db = SQL("sqlite:///f1.db")
 
 PILOTS = ["Verstappen", "Pérez", "Sainz", "Leclerc", "Alonso", "Stroll", "Hamilton", "Russell", "Norris", "Piastri", "Ricciardo", "Tsunoda", "Bottas", "Zhou", "Hulkenberg", "Magnussen", "Ocon", "Gasly", "Albon", "Sargeant"]
 TEAMS = ["Red Bull", "Ferrari", "Aston Martin", "Mercedes", "McLaren", "Visa CashApp", "Kick Sauber", "Hass", "Alpine", "Williams"]
