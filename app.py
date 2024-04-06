@@ -81,8 +81,7 @@ def predecir():
 				return apology("Fecha límite superada")
 			if db.execute("SELECT * FROM predictions WHERE user=? AND race=? AND type=?", session["user_id"], circuit, sessionType):
 				db.execute("DELETE FROM predictions WHERE user=? AND race=? AND type=?", session["user_id"], circuit, sessionType)
-				db.execute("INSERT INTO predictions (user, race, type, top1, top2, top3, top4, top5, escuderia) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", session["user_id"], circuit, sessionType, top1, top2, top3, top4, top5, team)
-			
+
 			db.execute("INSERT INTO predictions (user, race, type, top1, top2, top3, top4, top5, escuderia) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", session["user_id"], circuit, sessionType, top1, top2, top3, top4, top5, team)
 		else:
 			qualy_date = request.form.get("qualy_date")
@@ -134,18 +133,15 @@ def resultados():
 				return apology("Carrera necesita escudería")
 			if db.execute("SELECT * FROM results WHERE user=? AND race=? AND type=?", session["user_id"], circuit, sessionType):
 				db.execute("DELETE FROM results WHERE user=? AND race=? AND type=?", session["user_id"], circuit, sessionType)
-				db.execute("INSERT INTO results (user, race, type, top1, top2, top3, top4, top5) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", session["user_id"], circuit, sessionType, top1, top2, top3, top4, top5)
-			else:
-				db.execute("INSERT INTO results (user, race, type, top1, top2, top3, top4, top5) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", session["user_id"], circuit, sessionType, top1, top2, top3, top4, top5)
+			
+			db.execute("INSERT INTO results (user, race, type, top1, top2, top3, top4, top5) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", session["user_id"], circuit, sessionType, top1, top2, top3, top4, top5)
 		else:
 			if sessionType == "qualy":
 				return apology("Clasificación no tiene escudería")
 			if db.execute("SELECT * FROM results WHERE user=? AND race=? AND type=?", session["user_id"], circuit, sessionType):
 				db.execute("DELETE FROM results WHERE user=? AND race=? AND type=?", session["user_id"], circuit, sessionType)
-				db.execute("INSERT INTO results (user, race, type, top1, top2, top3, top4, top5, escuderia) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", session["user_id"], circuit, sessionType, top1, top2, top3, top4, top5, team)
-
-			else:
-				db.execute("INSERT INTO results (user, race, type, top1, top2, top3, top4, top5, escuderia) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", session["user_id"], circuit, sessionType, top1, top2, top3, top4, top5, team)
+				
+			db.execute("INSERT INTO results (user, race, type, top1, top2, top3, top4, top5, escuderia) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", session["user_id"], circuit, sessionType, top1, top2, top3, top4, top5, team)
 			
 
 		predictions = db.execute("SELECT * FROM predictions WHERE race=? AND type=?", circuit, sessionType)
