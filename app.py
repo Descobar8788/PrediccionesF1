@@ -3,13 +3,17 @@ from flask_session import Session
 from helpers import apology, login_required, get_date
 from datetime import datetime
 import cs50
+import os
+
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = "sdffwierjf/asdjkfnwehfsf(/wefj)"
 app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_PERMANENT"] = False
-db = cs50.SQL("postgresql://postgres:holahola@localhost/f1")
+db_url = os.getenv('DATABASE_URL', "postgresql://postgres:holahola@localhost/f1")
+db_url = db_url.replace('postgres://', 'postgresql://')
+db = cs50.SQL(db_url)
 Session(app)
 
 PILOTS = ["Verstappen", "Pérez", "Sainz", "Leclerc", "Alonso", "Stroll", "Hamilton", "Russell", "Norris", "Piastri", "Ricciardo", "Tsunoda", "Bottas", "Zhou", "Hulkenberg", "Magnussen", "Ocon", "Gasly", "Albon", "Sargeant"]
