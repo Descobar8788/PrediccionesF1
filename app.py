@@ -11,7 +11,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-db = SQL("sqlite:///f1.db")
+db = SQL("postgres://prediccionesf1-main-db-088887a98c6ab67fc:wsqR4Z2gMvxr312yEqtPnScVWt7CW9@user-prod-us-east-2-1.cluster-cfi5vnucvv3w.us-east-2.rds.amazonaws.com:5432/prediccionesf1-main-db-088887a98c6ab67fc")
 
 PILOTS = ["Verstappen", "Pérez", "Sainz", "Leclerc", "Alonso", "Stroll", "Hamilton", "Russell", "Norris", "Piastri", "Ricciardo", "Tsunoda", "Bottas", "Zhou", "Hulkenberg", "Magnussen", "Ocon", "Gasly", "Albon", "Sargeant"]
 TEAMS = ["Red Bull", "Ferrari", "Aston Martin", "Mercedes", "McLaren", "Visa CashApp", "Kick Sauber", "Hass", "Alpine", "Williams"]
