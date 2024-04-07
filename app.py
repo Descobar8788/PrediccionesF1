@@ -208,7 +208,7 @@ def login():
 		if not password:
 			return apology("You must enter a password")
 
-		rows = db.execute("SELECT * FROM users WHERE user_name = ?", request.form.get("user"))
+		rows = db.execute("SELECT * FROM users WHERE user_name = ?", (request.form.get("user")))
 
 		if len(rows) != 1:
 			return apology("invalid username and or password", 1)
