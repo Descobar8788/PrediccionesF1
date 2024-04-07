@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = "sdffwierjf/asdjkfnwehfsf(/wefj)"
 app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_PERMANENT"] = False
-db_url = os.getenv("DATABASE_URL", "postgresql://postgres:holahola@localhost:5432/f1")
+db_url = os.getenv("DATABASE_URL", "postgresql://f1predicciones-main-db-009b8b37748f467be:uPzhtURBfZKP1QcNawUPY44kfH8HS1@user-prod-us-east-2-1.cluster-cfi5vnucvv3w.us-east-2.rds.amazonaws.com:5432/f1predicciones-main-db-009b8b37748f467be")
 db_url = db_url.replace("postgres://", "postgresql://")
 db = cs50.SQL(db_url)
 Session(app)
