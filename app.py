@@ -172,16 +172,16 @@ def resultados():
 				if prediction["escuderia"] == team:
 					points += 2
 
-			if db.execute("SELECT * FROM points WHERE user_name=? AND race=? AND type=?", prediction["user"], circuit, sessionType):
-				db.execute("DELETE FROM points WHERE user_name=? AND race=? AND type=?", prediction["user"], circuit, sessionType)
+			if db.execute("SELECT * FROM points WHERE user_name=? AND race=? AND type=?", prediction["user_name"], circuit, sessionType):
+				db.execute("DELETE FROM points WHERE user_name=? AND race=? AND type=?", prediction["user_name"], circuit, sessionType)
 
-			db.execute("INSERT INTO points (number, user_name, race, type) VALUES(?, ?, ?, ?)", points, prediction["user"], circuit, sessionType)
+			db.execute("INSERT INTO points (number, user_name, race, type) VALUES(?, ?, ?, ?)", points, prediction["user_name"], circuit, sessionType)
 
 			new_points = 0
-			pointlist = db.execute("SELECT number FROM points WHERE user_name=?", prediction["user"])
+			pointlist = db.execute("SELECT number FROM points WHERE user_name=?", prediction["user_name"])
 			for plist in pointlist:
 				new_points += int(plist["number"])
-			usr = int(prediction["user"])
+			usr = int(prediction["user_name"])
 			db.execute("UPDATE users SET points=? WHERE id=?", new_points, usr)
 		return redirect("/")
 	if request.method == "GET":
